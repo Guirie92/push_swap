@@ -6,18 +6,11 @@
 /*   By: guillsan <guillsan@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 22:44:42 by guillsan          #+#    #+#             */
-/*   Updated: 2025/11/14 13:42:41 by guillsan         ###   ########.fr       */
+/*   Updated: 2025/11/21 21:31:11 by guillsan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-int	ft_isdigit(int c)
-{
-	if (c < '0' || c > '9')
-		return (0);
-	return (1);
-}
 
 char	*ft_strchr(const char *s, int c)
 {

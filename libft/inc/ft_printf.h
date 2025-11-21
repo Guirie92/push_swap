@@ -6,7 +6,7 @@
 /*   By: guillsan <guillsan@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 20:53:07 by guillsan          #+#    #+#             */
-/*   Updated: 2025/11/21 21:24:49 by guillsan         ###   ########.fr       */
+/*   Updated: 2025/11/21 21:59:12 by guillsan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <stddef.h>
 # include <limits.h>
 # include <stdint.h>
+# include "libft.h"
 
 /* Constants */
 # define SPECIFIERS    "cspdiuoxX"
@@ -101,7 +102,6 @@ int		specifier_handler(t_data *data, va_list *args, int spcfr);
 int		ft_ui64toa_base_print(unsigned long long n,
 			t_base e_base, char *buffer);
 int		ft_itoa_print(int n, char *buf, t_data *data);
-int		ft_isdigit(int c);
 char	*ft_strchr(const char *s, int c);
 void	ft_bzero(void *s, size_t n);
 

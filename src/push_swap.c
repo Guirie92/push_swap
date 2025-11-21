@@ -6,7 +6,7 @@
 /*   By: guillsan <guillsan@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/21 20:52:36 by guillsan          #+#    #+#             */
-/*   Updated: 2025/11/21 21:25:07 by guillsan         ###   ########.fr       */
+/*   Updated: 2025/11/21 21:26:13 by guillsan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,4 +45,6 @@ int	main(int argc, char **argv)
 		exit (EXIT_FAILURE);
 	}
 	count = parse_count_digits(argc, argv);
+	(void)count;
+
 }

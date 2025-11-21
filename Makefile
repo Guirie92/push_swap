@@ -6,18 +6,18 @@
 #    By: guillsan <guillsan@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/20 21:58:38 by guillsan          #+#    #+#              #
-#    Updated: 2025/11/21 21:23:51 by guillsan         ###   ########.fr        #
+#    Updated: 2025/11/21 22:01:27 by guillsan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g3
 
 SRCS_DIR = src
 
-SRCS = 	$(addprefix $(SRCS_DIR)/,        \
+SRCS = $(addprefix $(SRCS_DIR)/,        \
 		push_swap.c)  
 
 OBJS = $(SRCS:.c=.o)
@@ -33,6 +33,17 @@ C_INCLUDES = $(INC_MINI) $(INC_LIB)
 # Links the Libft lib and its path
 LDFLAGS = -L $(LIB_DIR) -lft
 
+# -------------------------------- TEST AREA --------------------------------- #
+
+run: $(NAME)
+	./$(NAME) $(ARGS)
+
+rerun:
+	@make -s fclean
+	@make -s all
+	./$(NAME) $(ARGS)
+
+# -------------------------------- TEST AREA --------------------------------- #
 
 all: $(NAME)
 

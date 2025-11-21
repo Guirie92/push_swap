@@ -6,7 +6,7 @@
 #    By: guillsan <guillsan@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/24 20:50:11 by guillsan          #+#    #+#              #
-#    Updated: 2025/11/21 21:20:28 by guillsan         ###   ########.fr        #
+#    Updated: 2025/11/21 21:29:58 by guillsan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,10 +20,10 @@ SRC_UTILS_PATH = src/utils
 SRC_FLAGS_PATH = src/utils/flags
 INC_PATH = inc
 
-SRCS_UTILS  = 	$(addprefix $(SRC_PATH)/,        \     
+SRCS_UTILS = $(addprefix $(SRC_PATH)/,           \
 				ft_isdigit.c)
 				
-SRCS_PRINTF = 	$(addprefix $(SRC_PATH)/,        \
+SRCS_PRINTF = $(addprefix $(SRC_PATH)/,          \
 				ft_char_ptr_handler.c            \
 				ft_numeric_handler.c             \
 				ft_parse.c                       \
