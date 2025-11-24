@@ -6,13 +6,18 @@
 /*   By: guillsan <guillsan@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 15:08:03 by guillsan          #+#    #+#             */
-/*   Updated: 2025/11/25 00:20:20 by guillsan         ###   ########.fr       */
+/*   Updated: 2025/11/25 00:28:32 by guillsan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "push_swap.h"
 
+/*
+ * Accepts single arguments, arguments with quotation marks, multiple numbers
+ * within an argument, or any combination of them. It invalidates everything
+ * else, including things like "-" (sign without a number following it)
+ */
 long	parse_count_digits(t_ps_data *data, int argc, char **args)
 {
 	int		i;

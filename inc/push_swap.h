@@ -6,7 +6,7 @@
 /*   By: guillsan <guillsan@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/21 21:02:22 by guillsan          #+#    #+#             */
-/*   Updated: 2025/11/24 23:59:42 by guillsan         ###   ########.fr       */
+/*   Updated: 2025/11/25 00:48:02 by guillsan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define PUSH_SWAP_H
 
 # include <stdlib.h> // double-check
+# include "ps_algorithms.h"
 
 # define CLR_RED "\033[91m"
 # define CLR_GRN "\033[38;2;58;204;140m"

@@ -6,7 +6,7 @@
 #    By: guillsan <guillsan@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/20 21:58:38 by guillsan          #+#    #+#              #
-#    Updated: 2025/11/24 15:23:36 by guillsan         ###   ########.fr        #
+#    Updated: 2025/11/25 00:38:53 by guillsan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,10 +16,16 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror -g3
 
 SRCS_DIR = src
+SRCS_ALGORITHMS = $(SRCS_DIR)/algorithms
+SRCS_PARSER = $(SRCS_DIR)/parser
 
-SRCS = $(addprefix $(SRCS_DIR)/,        \
-		parser.c                        \
-		push_swap.c)  
+SRCS = $(addprefix $(SRCS_DIR)/,         \
+		push_swap.c)                     \
+		$(addprefix $(SRCS_ALGORITHMS)/, \
+		quick_sort.c)                    \
+		$(addprefix $(SRCS_PARSER)/,     \
+		parser.c)
+		
 
 OBJS = $(SRCS:.c=.o)
 
