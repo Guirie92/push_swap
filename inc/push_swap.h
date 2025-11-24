@@ -6,7 +6,7 @@
 /*   By: guillsan <guillsan@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/21 21:02:22 by guillsan          #+#    #+#             */
-/*   Updated: 2025/11/24 14:31:51 by guillsan         ###   ########.fr       */
+/*   Updated: 2025/11/24 15:20:20 by guillsan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,7 @@ typedef struct s_stack
 	int		cap;
 	char	id;
 }	t_stack;
+
+int	parse_count_digits(int argc, char **args);
 
 #endif /* PUSH_SWAP_H */

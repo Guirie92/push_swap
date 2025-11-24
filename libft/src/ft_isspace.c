@@ -1,26 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_isspace.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: guillsan <guillsan@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/30 13:01:31 by guillsan          #+#    #+#             */
-/*   Updated: 2025/11/24 15:24:14 by guillsan         ###   ########.fr       */
+/*   Created: 2025/11/24 15:00:36 by guillsan          #+#    #+#             */
+/*   Updated: 2025/11/24 15:02:05 by guillsan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
-
-# include <stddef.h>
-# include <stdlib.h>
-# include <limits.h>
-# include <unistd.h>
-# include <stdint.h>
-# include "ft_printf.h"
-
-int	ft_isdigit(int c);
-int	ft_isspace(int c);
-
-#endif /* LIBFT_H */
+int	ft_isspace(int c)
+{
+	if ((c >= 9 && c <= 13) || c == 32)
+		return (1);
+	return (0);
+}

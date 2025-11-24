@@ -6,7 +6,7 @@
 #    By: guillsan <guillsan@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/20 21:58:38 by guillsan          #+#    #+#              #
-#    Updated: 2025/11/24 14:52:43 by guillsan         ###   ########.fr        #
+#    Updated: 2025/11/24 15:23:36 by guillsan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,7 @@ CFLAGS = -Wall -Wextra -Werror -g3
 SRCS_DIR = src
 
 SRCS = $(addprefix $(SRCS_DIR)/,        \
+		parser.c                        \
 		push_swap.c)  
 
 OBJS = $(SRCS:.c=.o)
@@ -25,11 +26,11 @@ OBJS = $(SRCS:.c=.o)
 LIB_DIR = libft
 LIB_FILE = $(LIB_DIR)/libft.a
 
-INC_MINI = -I inc
+INC = -I inc
 INC_LIB = -I $(LIB_DIR)/inc
 
 # --- Compilation and Linking Flags ---
-C_INCLUDES = $(INC_MINI) $(INC_LIB) 
+C_INCLUDES = $(INC) $(INC_LIB) 
 # Links the Libft lib and its path
 LDFLAGS = -L $(LIB_DIR) -lft
 
