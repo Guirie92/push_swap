@@ -6,7 +6,7 @@
 /*   By: guillsan <guillsan@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/21 21:02:22 by guillsan          #+#    #+#             */
-/*   Updated: 2025/11/24 15:20:20 by guillsan         ###   ########.fr       */
+/*   Updated: 2025/11/24 23:59:42 by guillsan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,24 @@ typedef struct s_stack
 	int		head;
 	int		size;
 	int		cap;
-	char	id;
 }	t_stack;
 
-int	parse_count_digits(int argc, char **args);
+typedef struct s_ps_data
+{
+	long	count;
+	long	result;
+	int		argc;
+	size_t	idx;
+}	t_ps_data;
+
+typedef enum e_retcode
+{
+	EMEM_FAIL = -1,
+	E_ERROR,
+	E_SUCESS,
+}	t_retcode;
+
+long	parse_count_digits(t_ps_data *data, int argc, char **args);
+int		*parse_args(t_ps_data *data, char **argv, int *tmp, int *dupcheck);
 
 #endif /* PUSH_SWAP_H */

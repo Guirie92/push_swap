@@ -5,6 +5,8 @@
 		"stdint.h": "c",
 		"libft.h": "c",
 		"push_swap.h": "c",
-		"stdlib.h": "c"
+		"stdlib.h": "c",
+		"functional": "c",
+		"algorithm": "c"
 	}
 }
