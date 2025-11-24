@@ -6,7 +6,7 @@
 #    By: guillsan <guillsan@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/20 21:58:38 by guillsan          #+#    #+#              #
-#    Updated: 2025/11/21 22:01:27 by guillsan         ###   ########.fr        #
+#    Updated: 2025/11/24 14:52:43 by guillsan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,6 +33,13 @@ C_INCLUDES = $(INC_MINI) $(INC_LIB)
 # Links the Libft lib and its path
 LDFLAGS = -L $(LIB_DIR) -lft
 
+
+all: $(NAME)
+
+$(NAME): $(OBJS) $(LIB_FILE)
+	@$(CC) $(CFLAGS) $(C_INCLUDES) $(OBJS) $(LDFLAGS) -o $(NAME)
+
+
 # -------------------------------- TEST AREA --------------------------------- #
 
 run: $(NAME)
@@ -44,11 +51,6 @@ rerun:
 	./$(NAME) $(ARGS)
 
 # -------------------------------- TEST AREA --------------------------------- #
-
-all: $(NAME)
-
-$(NAME): $(OBJS) $(LIB_FILE)
-	@$(CC) $(CFLAGS) $(C_INCLUDES) $(OBJS) $(LDFLAGS) -o $(NAME)
 
 # Rule to build the libft lib
 $(LIB_FILE):
@@ -68,3 +70,5 @@ fclean: clean
 re: fclean all
 
 .PHONY: all clean fclean re $(LIB_FILE)
+
+.DEFAULT_GOAL=all

@@ -1,31 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: guillsan <guillsan@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/21 21:02:22 by guillsan          #+#    #+#             */
-/*   Updated: 2025/11/24 14:31:51 by guillsan         ###   ########.fr       */
+/*   Created: 2025/10/08 14:38:22 by guillsan          #+#    #+#             */
+/*   Updated: 2025/10/13 20:38:42 by guillsan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
-
-# include <stdlib.h> // double-check
-
-# define CLR_RED "\033[91m"
-# define CLR_GRN "\033[38;2;58;204;140m"
-# define CLR_RST "\033[0m"
-
-typedef struct s_stack
+int	ft_atoi(const char *nptr)
 {
-	int		*arr;
-	int		head;
-	int		size;
-	int		cap;
-	char	id;
-}	t_stack;
+	unsigned long	i;
+	int				sign;
+	int				result;
 
-#endif /* PUSH_SWAP_H */
+	i = 0;
+	sign = 1;
+	result = 0;
+	while ((nptr[i] >= 9 && nptr[i] <= 13) || nptr[i] == 32)
+		i++;
+	if (nptr[i] == '+' || nptr[i] == '-')
+	{
+		if (nptr[i] == '-')
+			sign *= -1;
+		i++;
+	}
+	while (nptr[i] >= '0' && nptr[i] <= '9')
+	{
+		result = result * 10 + (nptr[i] - '0');
+		i++;
+	}
+	return (result * sign);
+}

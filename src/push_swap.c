@@ -6,7 +6,7 @@
 /*   By: guillsan <guillsan@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/21 20:52:36 by guillsan          #+#    #+#             */
-/*   Updated: 2025/11/21 21:26:13 by guillsan         ###   ########.fr       */
+/*   Updated: 2025/11/24 14:25:15 by guillsan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,16 +35,23 @@ int	parse_count_digits(int argc, char **dgts)
 	return (count);
 }
 
+
+
 int	main(int argc, char **argv)
 {
 	int	count;
 
 	if (argc < 2)
 	{
-		ft_printf(STDERR_FILENO, "Error\n");
+		ft_printf(STDERR_FILENO, CLR_RED "Error\n" CLR_RST);
 		exit (EXIT_FAILURE);
 	}
 	count = parse_count_digits(argc, argv);
+	if (count == -1)
+	{
+		ft_printf(STDERR_FILENO, CLR_RED "Error\n" CLR_RST);
+		exit (EXIT_FAILURE);
+	}
 	(void)count;
 
 }
