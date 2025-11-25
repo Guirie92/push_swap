@@ -6,7 +6,7 @@
 /*   By: guillsan <guillsan@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/21 20:52:36 by guillsan          #+#    #+#             */
-/*   Updated: 2025/11/25 18:47:32 by guillsan         ###   ########.fr       */
+/*   Updated: 2025/11/25 22:30:40 by guillsan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ static void	parse_normalize(t_ps_data *data, t_stack *a, t_stack *b,
 		char **argv)
 {
 	data->count = parse_count_arr(data, data->argc, argv);
-	ft_printf(STDOUT_FILENO, "count: %d\n", data->count); // DELETE
+	// ft_printf(STDOUT_FILENO, "count: %d\n", data->count); // DELETE
 	if (data->count == -1)
 		exit_error(a, b);
 	if (stack_init(a, b, data->count) == EMEM_FAIL)

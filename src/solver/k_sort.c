@@ -6,7 +6,7 @@
 /*   By: guillsan <guillsan@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/25 17:17:31 by guillsan          #+#    #+#             */
-/*   Updated: 2025/11/25 22:10:13 by guillsan         ###   ########.fr       */
+/*   Updated: 2025/11/25 23:37:39 by guillsan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void	k_sort(t_stack *a, t_stack *b, long n)
 	int	chunk_size;
 	int	counter;
 
+	counter = 0;
 	if (n <= K_SORT_THRESHOLD)
 		chunk_size = CHUNK_SIZE_LO;
 	else
@@ -64,24 +65,85 @@ static void	find_max(t_stack *b, int target, int *max_idx)
 	{
 		if (lookup(b, i) == target)
 		{
-			max_idx = i;
+			*max_idx = i;
 			break ;
 		}
+		i++;
 	}
-	
 }
 
+// static void	pull_max_to_a(t_stack *a, t_stack *b)
+// {
+// 	int	max_idx;
+// 	int	target;
+// 	int	i;
+
+// 	max_idx = 0;
+// 	target = b->size - 1;
+// 	i = 0;
+// 	while (i < b->size)
+// 	{
+// 		find_max(b, target, &max_idx);
+// 		if(max_idx <= b->size / 2)
+// 			while(max_idx-- > 0)
+// 				rb(b);
+// 		else
+// 			while(max_idx++ < b->size)
+// 				rrb(b);
+// 		pa(a, b);
+// 		i++;
+// 	}
+// }
 static void	pull_max_to_a(t_stack *a, t_stack *b)
 {
 	int	max_idx;
 	int	target;
-	int	i;
 
-	max_idx = 0;
-	target = b->size - 1;
-	i = 0;
-	while (i < b->size)
+	while (b->size > 0)
 	{
+		max_idx = 0;
+		target = b->size - 1;
 		find_max(b, target, &max_idx);
+		if(max_idx <= b->size / 2)
+			while(max_idx > 0)
+			{
+				rb(b);
+				max_idx--;
+			}
+		else
+			while(max_idx < b->size)
+			{
+				rrb(b);
+				max_idx++;
+			}
+		pa(a, b);
 	}
 }
+// static void	pull_max_to_a(t_stack *a, t_stack *b)
+// {
+// 	int	max_idx;
+// 	int	target;
+// 	int	i;
+
+// 	i = 0;
+// 	while (i < b->size)
+// 	{
+// 		max_idx = 0;
+// 		target = b->size - 1;
+// 		find_max(b, target, &max_idx);
+// 		if(max_idx <= b->size / 2)
+// 			while(max_idx > 0)
+// 			{
+// 				rb(b);
+// 				max_idx--;
+// 			}
+// 		else
+// 			while(max_idx < b->size)
+// 			{
+// 				rrb(b);
+// 				max_idx++;
+// 			}
+// 		pa(a, b);
+// 		i++;
+// 	}
+// }

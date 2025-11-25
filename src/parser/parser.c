@@ -6,7 +6,7 @@
 /*   By: guillsan <guillsan@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 15:08:03 by guillsan          #+#    #+#             */
-/*   Updated: 2025/11/25 02:57:42 by guillsan         ###   ########.fr       */
+/*   Updated: 2025/11/26 00:22:24 by guillsan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,15 +113,15 @@ int	parse_args(t_ps_data *data, char **args, int *tmp, int *dupcheck)
 	quick_sort_arr(dupcheck, 0, data->count - 1);
 
 	/* JUST FOR DEBUGGING (BELOW), DELETE */
-	for(int k = 0; k < data->count; k++)
-	{
-		ft_printf(STDOUT_FILENO, "%d\n", tmp[k]);
-	}
-	ft_printf(STDOUT_FILENO, "-----------\n");
-	for(int k = 0; k < data->count; k++)
-	{
-		ft_printf(STDOUT_FILENO, "%d\n", dupcheck[k]);
-	}
+	// for(int k = 0; k < data->count; k++)
+	// {
+	// 	ft_printf(STDOUT_FILENO, "%d\n", tmp[k]);
+	// }
+	// ft_printf(STDOUT_FILENO, "-----------\n");
+	// for(int k = 0; k < data->count; k++)
+	// {
+	// 	ft_printf(STDOUT_FILENO, "%d\n", dupcheck[k]);
+	// }
 	/* JUST FOR DEBUGGING (ABOVE), DELETE */
 	
 	i = -1;

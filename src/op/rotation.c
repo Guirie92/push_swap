@@ -6,7 +6,7 @@
 /*   By: guillsan <guillsan@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/25 14:21:45 by guillsan          #+#    #+#             */
-/*   Updated: 2025/11/25 16:56:59 by guillsan         ###   ########.fr       */
+/*   Updated: 2025/11/25 23:03:36 by guillsan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static void	rotate(t_stack *s)
 
 	if (s->size < 2)
 		return ;
-	val = s->head;
+	val = s->arr[s->head];
 	s->head = ft_mod(s->head + 1, s->cap);
 	s->arr[get_idx(s, s->size - 1)] = val;
 }

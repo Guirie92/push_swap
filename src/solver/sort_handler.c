@@ -6,7 +6,7 @@
 /*   By: guillsan <guillsan@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/25 17:24:02 by guillsan          #+#    #+#             */
-/*   Updated: 2025/11/25 21:40:33 by guillsan         ###   ########.fr       */
+/*   Updated: 2025/11/25 22:23:58 by guillsan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,8 +68,8 @@ static void	find_min(int *min_idx, int *min_val, t_stack *a)
 {
 	int	i;
 
-	min_idx = 0;
-	min_val = lookup(a, 0);
+	*min_idx = 0;
+	*min_val = lookup(a, 0);
 	i = 1;
 	while (i < a->size)
 	{
@@ -77,8 +77,8 @@ static void	find_min(int *min_idx, int *min_val, t_stack *a)
 		{
 			*min_val = lookup (a, i);
 			*min_idx = i;
-			i++;
 		}
+		i++;
 	}
 }
 
