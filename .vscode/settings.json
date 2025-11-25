@@ -10,6 +10,7 @@
 		"algorithm": "c",
 		"cmath": "c",
 		"ps_algorithms.h": "c",
-		"stdio.h": "c"
+		"stdio.h": "c",
+		"random": "c"
 	}
 }

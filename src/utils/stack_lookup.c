@@ -1,39 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rankify.c                                          :+:      :+:    :+:   */
+/*   stack_lookup.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: guillsan <guillsan@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/25 02:27:57 by guillsan          #+#    #+#             */
-/*   Updated: 2025/11/25 03:47:19 by guillsan         ###   ########.fr       */
+/*   Created: 2025/11/25 03:34:20 by guillsan          #+#    #+#             */
+/*   Updated: 2025/11/25 03:37:56 by guillsan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	normalize_ranks(int *arr, size_t n)
+int	lookup(t_stack *s, int idx)
 {
-	t_node	*nodes;
-	size_t	i;
+	return (s->arr[get_idx(s, idx)]);
+}
 
-	nodes = malloc(sizeof(t_node) * n);
-	if (!nodes)
-		return (EMEM_FAIL);
+int	is_sorted(t_stack *s)
+{
+	int	i;
+
 	i = 0;
-	while (i < n)
+	while (i < s->size - 1)
 	{
-		nodes[i].value = arr[i];
-		nodes[i].index = i;
+		if (lookup(s, i) > lookup(s, i + 1))
+			return (0);
 		i++;
 	}
-	quick_sort_nodes(nodes, 0, n - 1);
-	i = 0;
-	while (i < n)
-	{
-		arr[nodes[i].index] = i;
-		i++;
-	}
-	free(nodes);
-	return (E_SUCESS);
+	return (1);
 }

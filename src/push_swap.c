@@ -6,7 +6,7 @@
 /*   By: guillsan <guillsan@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/21 20:52:36 by guillsan          #+#    #+#             */
-/*   Updated: 2025/11/25 02:42:36 by guillsan         ###   ########.fr       */
+/*   Updated: 2025/11/25 03:47:40 by guillsan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,21 @@ static void	exit_error(t_stack *a, t_stack *b)
 	exit (EXIT_FAILURE);
 }
 
+static void	parse_normalize(t_ps_data *data, t_stack *a, t_stack *b,
+		char **argv)
+{
+	data->count = parse_count_arr(data, data->argc, argv);
+	ft_printf(STDOUT_FILENO, "count: %d\n", data->count); // DELETE
+	if (data->count == -1)
+		exit_error(a, b);
+	if (stack_init(a, b, data->count) == EMEM_FAIL)
+		exit_error(a, b);
+	if (parse_args(data, argv, a->arr, b->arr) != E_SUCESS)
+		exit_error(a, b);
+	if (normalize_ranks(a->arr, (size_t)data->count) == EMEM_FAIL)
+		exit_error(a, b);
+}
+
 int	main(int argc, char **argv)
 {
 	t_stack		a;
@@ -54,16 +69,7 @@ int	main(int argc, char **argv)
 	if (argc < 2)
 		exit_error(&a, &b);
 	data.argc = argc;
-	data.count = parse_count_arr(&data, argc, argv);
-	ft_printf(STDOUT_FILENO, "count: %d\n", data.count); // DELETE
-	if (data.count == -1)
-		exit_error(&a, &b);
-	if (stack_init(&a, &b, data.count) == EMEM_FAIL)
-		exit_error(&a, &b);
-	if (parse_args(&data, argv, a.arr, b.arr) != E_SUCESS)
-		exit_error(&a, &b);
-	if (normalize_ranks(a.arr, (size_t)data.count) == EMEM_FAIL)
-		exit_error(&a, &b);
+	parse_normalize(&data, &a, &b, argv);
 	cleanup(&a, &b);
 	return (EXIT_SUCCESS);
 }
