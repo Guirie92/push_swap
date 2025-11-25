@@ -6,20 +6,20 @@
 /*   By: guillsan <guillsan@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/21 20:52:36 by guillsan          #+#    #+#             */
-/*   Updated: 2025/11/24 23:53:32 by guillsan         ###   ########.fr       */
+/*   Updated: 2025/11/25 02:42:36 by guillsan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "push_swap.h"
 
-void	cleanup(t_stack *a, t_stack *b)
+static void	cleanup(t_stack *a, t_stack *b)
 {
 	free(a->arr);
 	free(b->arr);
 }
 
-int	stack_init(t_stack *a, t_stack *b, int count)
+static int	stack_init(t_stack *a, t_stack *b, int count)
 {
 	a->arr = malloc(count * sizeof(int));
 	if (!a->arr)
@@ -36,7 +36,7 @@ int	stack_init(t_stack *a, t_stack *b, int count)
 	return (E_SUCESS);
 }
 
-void	exit_error(t_stack *a, t_stack *b)
+static void	exit_error(t_stack *a, t_stack *b)
 {
 	ft_printf(STDERR_FILENO, CLR_RED "Error\n" CLR_RST);
 	cleanup(a, b);
@@ -54,12 +54,16 @@ int	main(int argc, char **argv)
 	if (argc < 2)
 		exit_error(&a, &b);
 	data.argc = argc;
-	data.count = parse_count_digits(&data, argc, argv);
+	data.count = parse_count_arr(&data, argc, argv);
 	ft_printf(STDOUT_FILENO, "count: %d\n", data.count); // DELETE
 	if (data.count == -1)
 		exit_error(&a, &b);
 	if (stack_init(&a, &b, data.count) == EMEM_FAIL)
 		exit_error(&a, &b);
-	parse_args(&data, argv, a.arr, b.arr);
+	if (parse_args(&data, argv, a.arr, b.arr) != E_SUCESS)
+		exit_error(&a, &b);
+	if (normalize_ranks(a.arr, (size_t)data.count) == EMEM_FAIL)
+		exit_error(&a, &b);
+	cleanup(&a, &b);
 	return (EXIT_SUCCESS);
 }

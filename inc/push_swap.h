@@ -6,7 +6,7 @@
 /*   By: guillsan <guillsan@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/21 21:02:22 by guillsan          #+#    #+#             */
-/*   Updated: 2025/11/25 00:48:02 by guillsan         ###   ########.fr       */
+/*   Updated: 2025/11/25 02:49:34 by guillsan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,8 @@ typedef enum e_retcode
 	E_SUCESS,
 }	t_retcode;
 
-long	parse_count_digits(t_ps_data *data, int argc, char **args);
-int		*parse_args(t_ps_data *data, char **argv, int *tmp, int *dupcheck);
+long	parse_count_arr(t_ps_data *data, int argc, char **args);
+int		parse_args(t_ps_data *data, char **argv, int *tmp, int *dupcheck);
+int		normalize_ranks(int *arr, size_t n);
 
 #endif /* PUSH_SWAP_H */

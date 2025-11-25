@@ -6,7 +6,7 @@
 /*   By: guillsan <guillsan@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 15:08:03 by guillsan          #+#    #+#             */
-/*   Updated: 2025/11/25 00:28:32 by guillsan         ###   ########.fr       */
+/*   Updated: 2025/11/25 02:57:42 by guillsan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
  * within an argument, or any combination of them. It invalidates everything
  * else, including things like "-" (sign without a number following it)
  */
-long	parse_count_digits(t_ps_data *data, int argc, char **args)
+long	parse_count_arr(t_ps_data *data, int argc, char **args)
 {
 	int		i;
 	char	*arg;
@@ -33,12 +33,15 @@ long	parse_count_digits(t_ps_data *data, int argc, char **args)
 			while (ft_isspace(*arg))
 				arg++;
 			if (*arg == '+' || *arg == '-')
+			{
 				arg++;
-			if (!ft_isdigit(*arg))
-				return (-1);
+				if (!ft_isdigit(*arg))
+					return (-1);
+			}
+			if (ft_isdigit(*arg))
+				data->count++;
 			while (ft_isdigit(*arg))
 				arg++;
-			data->count++;
 			if (!ft_isspace(*arg) && *arg)
 				return (-1);
 		}
@@ -47,7 +50,7 @@ long	parse_count_digits(t_ps_data *data, int argc, char **args)
 	return (data->count);
 }
 
-long	ft_atol(t_ps_data *data, char **str, int *error)
+static long	ft_atol(t_ps_data *data, char **str, int *error)
 {
 	int		sign;
 
@@ -76,7 +79,7 @@ long	ft_atol(t_ps_data *data, char **str, int *error)
 	return (data->result * sign);
 }
 
-int	process_arg(t_ps_data *data, char *str, int *tmp, int *dupcheck)
+static int	process_arg(t_ps_data *data, char *str, int *tmp, int *dupcheck)
 {
 	long	val;
 	int		error;
@@ -94,28 +97,36 @@ int	process_arg(t_ps_data *data, char *str, int *tmp, int *dupcheck)
 	return (E_SUCESS);
 }
 
-int	*parse_args(t_ps_data *data, char **args, int *tmp, int *dupcheck)
+int	parse_args(t_ps_data *data, char **args, int *tmp, int *dupcheck)
 {
-	//int		error;
-	int		i;
+	long	i;
 
-	//error = 0;
 	i = 0;
 	data->idx = 0;
 	while (i < data->argc - 1)
 	{
 		if (process_arg(data, args[i + 1], tmp, dupcheck) == E_ERROR)
-			return (NULL);
+			return (E_ERROR);
 		i++;
 	}
+
+	quick_sort_arr(dupcheck, 0, data->count - 1);
 
 	/* JUST FOR DEBUGGING (BELOW), DELETE */
 	for(int k = 0; k < data->count; k++)
 	{
-		ft_printf(STDOUT_FILENO, "%d - ", tmp[k]);
+		ft_printf(STDOUT_FILENO, "%d\n", tmp[k]);
+	}
+	ft_printf(STDOUT_FILENO, "-----------\n");
+	for(int k = 0; k < data->count; k++)
+	{
 		ft_printf(STDOUT_FILENO, "%d\n", dupcheck[k]);
 	}
-	(void)dupcheck;
-	return (NULL);
 	/* JUST FOR DEBUGGING (ABOVE), DELETE */
+	
+	i = -1;
+	while (++i < data->count - 1)
+		if (dupcheck[i] == dupcheck[i + 1])
+			return (E_ERROR);
+	return (E_SUCESS);
 }

@@ -6,7 +6,7 @@
 #    By: guillsan <guillsan@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/20 21:58:38 by guillsan          #+#    #+#              #
-#    Updated: 2025/11/25 00:38:53 by guillsan         ###   ########.fr        #
+#    Updated: 2025/11/25 02:41:37 by guillsan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,7 @@ SRCS = $(addprefix $(SRCS_DIR)/,         \
 		$(addprefix $(SRCS_ALGORITHMS)/, \
 		quick_sort.c)                    \
 		$(addprefix $(SRCS_PARSER)/,     \
+		rankify.c                        \
 		parser.c)
 		
 

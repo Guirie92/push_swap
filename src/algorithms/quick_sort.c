@@ -6,11 +6,11 @@
 /*   By: guillsan <guillsan@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/25 00:19:37 by guillsan          #+#    #+#             */
-/*   Updated: 2025/11/25 00:49:28 by guillsan         ###   ########.fr       */
+/*   Updated: 2025/11/25 03:16:21 by guillsan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ps_algorithms.h"
+#include "push_swap.h"
 
 /*
  * Quick sorts in O(n log n) complexity, much faster than my previous
@@ -48,4 +48,33 @@ void	quick_sort_arr(int *arr, int low, int high)
 	}
 	quick_sort_arr(arr, low, data.j);
 	quick_sort_arr(arr, data.i, high);
+}
+
+void	quick_sort_nodes(t_node *arr, int low, int high)
+{
+	t_quick_sort	data;
+	t_node			tmp_node;
+
+	if (low >= high)
+		return ;
+	data.pivot = arr[(low + high) / 2].value;
+	data.i = low;
+	data.j = high;
+	while (data.i <= data.j)
+	{
+		while (arr[data.i].value < data.pivot)
+			data.i++;
+		while (arr[data.j].value > data.pivot)
+			data.j--;
+		if (data.i <= data.j)
+		{
+			tmp_node = arr[data.i];
+			arr[data.i] = arr[data.j];
+			arr[data.j] = tmp_node;
+			data.i++;
+			data.j--;
+		}
+	}
+	quick_sort_nodes(arr, low, data.j);
+	quick_sort_nodes(arr, data.i, high);
 }

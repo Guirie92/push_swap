@@ -8,6 +8,8 @@
 		"stdlib.h": "c",
 		"functional": "c",
 		"algorithm": "c",
-		"cmath": "c"
+		"cmath": "c",
+		"ps_algorithms.h": "c",
+		"stdio.h": "c"
 	}
 }

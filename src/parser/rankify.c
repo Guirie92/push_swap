@@ -1,33 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_algorithms.h                                    :+:      :+:    :+:   */
+/*   rankify.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: guillsan <guillsan@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/21 21:02:22 by guillsan          #+#    #+#             */
-/*   Updated: 2025/11/25 02:47:54 by guillsan         ###   ########.fr       */
+/*   Created: 2025/11/25 02:27:57 by guillsan          #+#    #+#             */
+/*   Updated: 2025/11/25 03:17:47 by guillsan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PS_ALGORITHMS_H
-# define PS_ALGORITHMS_H
+#include "push_swap.h"
 
-typedef struct s_quick_sort
+int	normalize_ranks(int *arr, size_t n)
 {
-	int	tmp;
-	int	pivot;
-	int	i;
-	int	j;
-}	t_quick_sort;
+	t_node	*nodes;
+	size_t	i;
 
-typedef struct s_node
-{
-	int		value;
-	size_t	index;
-}	t_node;
-
-void	quick_sort_arr(int *arr, int low, int high);
-void	quick_sort_nodes(t_node *arr, int low, int high);
-
-#endif /* PS_ALGORITHMS_H */
+	nodes = malloc(sizeof(t_node) * n);
+	if (!nodes)
+		return (EMEM_FAIL);
+	i = 0;
+	while (i < n)
+	{
+		nodes[i].value = arr[i];
+		nodes[i].index = i;
+		i++;
+	}
+	quick_sort_nodes(nodes, 0, n - 1);
+	i = 0;
+	while (i < n)
+	{
+		arr[nodes[i].index] = i;
+		i++;
+	}
+	free(nodes);
+	return (E_SUCESS);
+}
