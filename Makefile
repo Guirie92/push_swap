@@ -6,7 +6,7 @@
 #    By: guillsan <guillsan@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/20 21:58:38 by guillsan          #+#    #+#              #
-#    Updated: 2025/11/25 02:41:37 by guillsan         ###   ########.fr        #
+#    Updated: 2025/11/25 14:50:09 by guillsan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,8 @@ CFLAGS = -Wall -Wextra -Werror -g3
 SRCS_DIR = src
 SRCS_ALGORITHMS = $(SRCS_DIR)/algorithms
 SRCS_PARSER = $(SRCS_DIR)/parser
+SRCS_UTILS = $(SRCS_DIR)/utils
+SRCS_OP = $(SRCS_DIR)/op
 
 SRCS = $(addprefix $(SRCS_DIR)/,         \
 		push_swap.c)                     \

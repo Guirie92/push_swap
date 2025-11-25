@@ -6,15 +6,17 @@
 /*   By: guillsan <guillsan@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/21 21:02:22 by guillsan          #+#    #+#             */
-/*   Updated: 2025/11/25 03:38:48 by guillsan         ###   ########.fr       */
+/*   Updated: 2025/11/25 14:52:35 by guillsan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include <stdlib.h> // double-check
+// # include <stdlib.h> // double-check
+# include <unistd.h>
 # include "ps_algorithms.h"
+# include "ps_ops.h"
 
 # define CLR_RED "\033[91m"
 # define CLR_GRN "\033[38;2;58;204;140m"
@@ -46,8 +48,11 @@ typedef enum e_retcode
 long	parse_count_arr(t_ps_data *data, int argc, char **args);
 int		parse_args(t_ps_data *data, char **argv, int *tmp, int *dupcheck);
 int		normalize_ranks(int *arr, size_t n);
+void	op_print(const char *op);
 
 /* utils */
+void	op_print(const char *op);
+int		get_idx(t_stack *s, int idx);
 int		lookup(t_stack *s, int idx);
 int		is_sorted(t_stack *s);
 

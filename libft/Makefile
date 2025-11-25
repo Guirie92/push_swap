@@ -6,7 +6,7 @@
 #    By: guillsan <guillsan@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/24 20:50:11 by guillsan          #+#    #+#              #
-#    Updated: 2025/11/24 21:21:07 by guillsan         ###   ########.fr        #
+#    Updated: 2025/11/25 14:45:26 by guillsan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,7 @@ INC_PATH = inc
 
 SRCS_LIBFT = $(addprefix $(SRC_PATH)/,              \
 				ft_printf.c                         \
+				ft_mod.c                            \
 				ft_isspace.c                        \
 				ft_memset.c                         \
 				ft_isdigit.c)

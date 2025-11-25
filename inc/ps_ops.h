@@ -1,28 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ps_ops.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: guillsan <guillsan@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/30 13:01:31 by guillsan          #+#    #+#             */
-/*   Updated: 2025/11/25 14:46:09 by guillsan         ###   ########.fr       */
+/*   Created: 2025/11/21 21:02:22 by guillsan          #+#    #+#             */
+/*   Updated: 2025/11/25 14:41:52 by guillsan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#ifndef PS_OPS_H
+# define PS_OPS_H
 
-# include <stddef.h>
-# include <stdlib.h>
-# include <limits.h>
-# include <unistd.h>
-# include <stdint.h>
-# include "ft_printf.h"
+void	quick_sort_arr(int *arr, int low, int high);
+void	quick_sort_nodes(t_node *arr, int low, int high);
 
-int		ft_isdigit(int c);
-int		ft_isspace(int c);
-void	*ft_memset(void *s, int c, size_t n);
-int		ft_mod(int a, int b);
-
-#endif /* LIBFT_H */
+#endif /* PS_OPS_H */

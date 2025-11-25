@@ -1,36 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   rev_rotation.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: guillsan <guillsan@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/08 14:38:22 by guillsan          #+#    #+#             */
-/*   Updated: 2025/10/13 20:38:42 by guillsan         ###   ########.fr       */
+/*   Created: 2025/11/25 14:21:45 by guillsan          #+#    #+#             */
+/*   Updated: 2025/11/25 15:17:26 by guillsan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_atoi(const char *nptr)
-{
-	unsigned long	i;
-	int				sign;
-	int				result;
+#include "libft.h"
+#include "push_swap.h"
 
-	i = 0;
-	sign = 1;
-	result = 0;
-	while ((nptr[i] >= 9 && nptr[i] <= 13) || nptr[i] == 32)
-		i++;
-	if (nptr[i] == '+' || nptr[i] == '-')
-	{
-		if (nptr[i] == '-')
-			sign *= -1;
-		i++;
-	}
-	while (nptr[i] >= '0' && nptr[i] <= '9')
-	{
-		result = result * 10 + (nptr[i] - '0');
-		i++;
-	}
-	return (result * sign);
+void	rev_rotate(t_stack *s)
+{
+	int	val;
+
+	if (s->size <= 2)
+		return ;
+	
+}
+
+void	rra(t_stack *a)
+{
+	rev_rotate(a);
+	op_print("rra");
+}
+
+void	rrb(t_stack *b)
+{
+	rev_rotate(b);
+	op_print("rrb");
+}
+
+void	rrr(t_stack *a, t_stack *b)
+{
+	rev_rotate(a);
+	rev_rotate(b);
+	op_print("rrr");
 }
