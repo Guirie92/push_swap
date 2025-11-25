@@ -6,7 +6,7 @@
 #    By: guillsan <guillsan@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/20 21:58:38 by guillsan          #+#    #+#              #
-#    Updated: 2025/11/25 14:50:09 by guillsan         ###   ########.fr        #
+#    Updated: 2025/11/25 18:52:15 by guillsan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,7 @@ SRCS_ALGORITHMS = $(SRCS_DIR)/algorithms
 SRCS_PARSER = $(SRCS_DIR)/parser
 SRCS_UTILS = $(SRCS_DIR)/utils
 SRCS_OP = $(SRCS_DIR)/op
+SRCS_SOLVER = $(SRCS_DIR)/solver
 
 SRCS = $(addprefix $(SRCS_DIR)/,         \
 		push_swap.c)                     \
@@ -27,7 +28,17 @@ SRCS = $(addprefix $(SRCS_DIR)/,         \
 		quick_sort.c)                    \
 		$(addprefix $(SRCS_PARSER)/,     \
 		rankify.c                        \
-		parser.c)
+		parser.c)                        \
+		$(addprefix $(SRCS_UTILS)/,      \
+		stack_ops.c)                     \
+		$(addprefix $(SRCS_OP)/,         \
+		push.c                           \
+		rev_rotation.c                   \
+		rotation.c                       \
+		swap.c)                          \
+		$(addprefix $(SRCS_SOLVER)/,     \
+		k_sort.c                         \
+		sort_handler.c)
 		
 
 OBJS = $(SRCS:.c=.o)

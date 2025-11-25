@@ -6,7 +6,7 @@
 /*   By: guillsan <guillsan@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/25 14:21:45 by guillsan          #+#    #+#             */
-/*   Updated: 2025/11/25 14:53:45 by guillsan         ###   ########.fr       */
+/*   Updated: 2025/11/25 16:56:59 by guillsan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 #include "push_swap.h"
 
 /*
- * Top moves to bottom while the head moves forward.
+ * Top moves to bottom
  * For example:
  * [0, 1, 2] -> [1, 2, 0]
  */
-void	rotate(t_stack *s)
+static void	rotate(t_stack *s)
 {
 	int	val;
 

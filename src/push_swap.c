@@ -6,7 +6,7 @@
 /*   By: guillsan <guillsan@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/21 20:52:36 by guillsan          #+#    #+#             */
-/*   Updated: 2025/11/25 03:47:40 by guillsan         ###   ########.fr       */
+/*   Updated: 2025/11/25 18:47:32 by guillsan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ int	main(int argc, char **argv)
 		exit_error(&a, &b);
 	data.argc = argc;
 	parse_normalize(&data, &a, &b, argv);
+	sort_handler(&a, &b, data.count);
 	cleanup(&a, &b);
 	return (EXIT_SUCCESS);
 }

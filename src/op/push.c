@@ -6,7 +6,7 @@
 /*   By: guillsan <guillsan@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/25 14:21:45 by guillsan          #+#    #+#             */
-/*   Updated: 2025/11/25 15:16:31 by guillsan         ###   ########.fr       */
+/*   Updated: 2025/11/25 16:57:11 by guillsan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
  * 1. Pops the value from SRC, and then
  * 2. Pushes it to DST
  */
-void	push(t_stack *src, t_stack *dst)
+static void	push(t_stack *src, t_stack *dst)
 {
 	int	val;
 

@@ -1,32 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_ops.h                                           :+:      :+:    :+:   */
+/*   ps_solver.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: guillsan <guillsan@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/21 21:02:22 by guillsan          #+#    #+#             */
-/*   Updated: 2025/11/25 18:46:04 by guillsan         ###   ########.fr       */
+/*   Updated: 2025/11/25 21:45:26 by guillsan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PS_OPS_H
-# define PS_OPS_H
+#ifndef PS_SOLVER_H
+# define PS_SOLVER_H
 
 # include "push_swap.h"
+# define K_SORT_THRESHOLD 100
+# define CHUNK_SIZE_LO 15
+# define CHUNK_SIZE_HI 30
 
 typedef struct s_stack	t_stack;
 
-void	sa(t_stack *a);
-void	sb(t_stack *b);
-void	ss(t_stack *a, t_stack *b);
-void	pa(t_stack *a, t_stack *b);
-void	pb(t_stack *a, t_stack *b);
-void	ra(t_stack *a);
-void	rb(t_stack *b);
-void	rr(t_stack *a, t_stack *b);
-void	rra(t_stack *a);
-void	rrb(t_stack *b);
-void	rrr(t_stack *a, t_stack *b);
+void	sort_handler(t_stack *a, t_stack *b, long n);
+void	k_sort(t_stack *a, t_stack *b, long n);
 
-#endif /* PS_OPS_H */
+#endif /* PS_SOLVER_H */

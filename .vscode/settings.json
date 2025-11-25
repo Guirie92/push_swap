@@ -17,6 +17,8 @@
 		"string_view": "c",
 		"ranges": "c",
 		"stddef.h": "c",
-		"limits.h": "c"
+		"limits.h": "c",
+		"ps_ops.h": "c",
+		"ps_solver.h": "c"
 	}
 }
