@@ -6,7 +6,7 @@
 #    By: guillsan <guillsan@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/20 21:58:38 by guillsan          #+#    #+#              #
-#    Updated: 2025/11/25 18:52:15 by guillsan         ###   ########.fr        #
+#    Updated: 2025/11/26 02:06:16 by guillsan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,7 +37,7 @@ SRCS = $(addprefix $(SRCS_DIR)/,         \
 		rotation.c                       \
 		swap.c)                          \
 		$(addprefix $(SRCS_SOLVER)/,     \
-		k_sort.c                         \
+		chunk_sort.c                     \
 		sort_handler.c)
 		
 

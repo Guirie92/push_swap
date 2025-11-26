@@ -6,7 +6,7 @@
 /*   By: guillsan <guillsan@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/21 21:02:22 by guillsan          #+#    #+#             */
-/*   Updated: 2025/11/25 18:49:14 by guillsan         ###   ########.fr       */
+/*   Updated: 2025/11/26 02:38:28 by guillsan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,6 @@
 # include "ps_ops.h"
 # include "ps_solver.h"
 
-# define CLR_RED "\033[91m"
-# define CLR_GRN "\033[38;2;58;204;140m"
-# define CLR_RST "\033[0m"
-
 typedef struct s_stack
 {
 	int		*arr;
@@ -30,7 +26,6 @@ typedef struct s_stack
 	int		size;
 	int		cap;
 }	t_stack;
-
 
 typedef struct s_ps_data
 {
@@ -48,7 +43,7 @@ typedef enum e_retcode
 }	t_retcode;
 
 /* parser */
-long	parse_count_arr(t_ps_data *data, int argc, char **args);
+long	parse_count_arr(t_ps_data *data, int argc, char **args, int i);
 int		parse_args(t_ps_data *data, char **argv, int *tmp, int *dupcheck);
 int		normalize_ranks(int *arr, size_t n);
 

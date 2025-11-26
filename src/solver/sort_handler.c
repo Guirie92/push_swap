@@ -6,7 +6,7 @@
 /*   By: guillsan <guillsan@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/25 17:24:02 by guillsan          #+#    #+#             */
-/*   Updated: 2025/11/26 01:28:07 by guillsan         ###   ########.fr       */
+/*   Updated: 2025/11/26 02:07:44 by guillsan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 static void	sort_3(t_stack *a);
 static void	sort_5(t_stack *a, t_stack *b);
+static void	find_min(int *min_idx, int *min_val, t_stack *a);
 
 void	sort_handler(t_stack *a, t_stack *b, long n)
 {
@@ -26,7 +27,7 @@ void	sort_handler(t_stack *a, t_stack *b, long n)
 	else if (n <= 5)
 		sort_5(a, b);
 	else
-		k_sort(a, b, n);
+		chunk_sort(a, b, n);
 }
 
 /*
@@ -64,24 +65,6 @@ static void	sort_3(t_stack *a)
 		rra(a);
 }
 
-static void	find_min(int *min_idx, int *min_val, t_stack *a)
-{
-	int	i;
-
-	*min_idx = 0;
-	*min_val = lookup(a, 0);
-	i = 1;
-	while (i < a->size)
-	{
-		if (lookup(a, i) < *min_val)
-		{
-			*min_val = lookup (a, i);
-			*min_idx = i;
-		}
-		i++;
-	}
-}
-
 /*
  * It sends the two smallest nbrs to B, sorts 3 in A, and pushes the
  * smallest nbrs back to A:
@@ -112,4 +95,22 @@ static void	sort_5(t_stack *a, t_stack *b)
 	sort_3(a);
 	while (b->size)
 		pa(a, b);
+}
+
+static void	find_min(int *min_idx, int *min_val, t_stack *a)
+{
+	int	i;
+
+	*min_idx = 0;
+	*min_val = lookup(a, 0);
+	i = 1;
+	while (i < a->size)
+	{
+		if (lookup(a, i) < *min_val)
+		{
+			*min_val = lookup (a, i);
+			*min_idx = i;
+		}
+		i++;
+	}
 }

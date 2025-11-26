@@ -6,7 +6,7 @@
 /*   By: guillsan <guillsan@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 15:08:03 by guillsan          #+#    #+#             */
-/*   Updated: 2025/11/26 01:27:03 by guillsan         ###   ########.fr       */
+/*   Updated: 2025/11/26 02:38:48 by guillsan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,10 @@
  * within an argument, or any combination of them. It invalidates everything
  * else, including things like "-" (sign without a number following it)
  */
-long	parse_count_arr(t_ps_data *data, int argc, char **args)
+long	parse_count_arr(t_ps_data *data, int argc, char **args, int i)
 {
-	int		i;
 	char	*arg;
 
-	i = 1;
-	data->count = 0;
 	while (i < argc)
 	{
 		arg = args[i];
@@ -111,21 +108,7 @@ int	parse_args(t_ps_data *data, char **args, int *tmp, int *dupcheck)
 			return (E_ERROR);
 		i++;
 	}
-
 	quick_sort_arr(dupcheck, 0, data->count - 1);
-
-	/* JUST FOR DEBUGGING (BELOW), DELETE */
-	// for(int k = 0; k < data->count; k++)
-	// {
-	// 	ft_printf(STDOUT_FILENO, "%d\n", tmp[k]);
-	// }
-	// ft_printf(STDOUT_FILENO, "-----------\n");
-	// for(int k = 0; k < data->count; k++)
-	// {
-	// 	ft_printf(STDOUT_FILENO, "%d\n", dupcheck[k]);
-	// }
-	/* JUST FOR DEBUGGING (ABOVE), DELETE */
-	
 	i = -1;
 	while (++i < data->count - 1)
 		if (dupcheck[i] == dupcheck[i + 1])
