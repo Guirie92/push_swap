@@ -6,7 +6,7 @@
 /*   By: guillsan <guillsan@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 15:08:03 by guillsan          #+#    #+#             */
-/*   Updated: 2025/11/26 00:22:24 by guillsan         ###   ########.fr       */
+/*   Updated: 2025/11/26 01:13:53 by guillsan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,6 +105,8 @@ int	parse_args(t_ps_data *data, char **args, int *tmp, int *dupcheck)
 	data->idx = 0;
 	while (i < data->argc - 1)
 	{
+		if (!*(args[i + 1]))
+			return (E_ERROR);
 		if (process_arg(data, args[i + 1], tmp, dupcheck) == E_ERROR)
 			return (E_ERROR);
 		i++;
