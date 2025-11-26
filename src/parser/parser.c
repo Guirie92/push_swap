@@ -6,7 +6,7 @@
 /*   By: guillsan <guillsan@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 15:08:03 by guillsan          #+#    #+#             */
-/*   Updated: 2025/11/26 02:38:48 by guillsan         ###   ########.fr       */
+/*   Updated: 2025/11/26 02:57:37 by guillsan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ long	parse_count_arr(t_ps_data *data, int argc, char **args, int i)
 {
 	char	*arg;
 
-	while (i < argc)
+	i = 0;
+	while (++i < argc)
 	{
 		arg = args[i];
 		while (*arg)
@@ -42,7 +43,6 @@ long	parse_count_arr(t_ps_data *data, int argc, char **args, int i)
 			if (!ft_isspace(*arg) && *arg)
 				return (-1);
 		}
-		i++;
 	}
 	return (data->count);
 }

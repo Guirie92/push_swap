@@ -6,7 +6,7 @@
 /*   By: guillsan <guillsan@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/21 20:52:36 by guillsan          #+#    #+#             */
-/*   Updated: 2025/11/26 02:38:20 by guillsan         ###   ########.fr       */
+/*   Updated: 2025/11/26 02:58:14 by guillsan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,6 @@ static void	parse_normalize(t_ps_data *data, t_stack *a, t_stack *b,
 {
 	int	i;
 
-	i = 0;
 	data->count = 0;
 	data->count = parse_count_arr(data, data->argc, argv, i);
 	if (data->count == -1)
