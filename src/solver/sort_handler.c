@@ -6,7 +6,7 @@
 /*   By: guillsan <guillsan@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/25 17:24:02 by guillsan          #+#    #+#             */
-/*   Updated: 2025/11/25 22:23:58 by guillsan         ###   ########.fr       */
+/*   Updated: 2025/11/26 01:28:07 by guillsan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	sort_handler(t_stack *a, t_stack *b, long n)
  * (1) [2, 1, 3] -> (sa)  -> [1, 2, 3]
  * (2) [3, 2, 1] -> (sa)  -> [2, 3, 1] -> (rra) -> [1, 2, 3]
  * (3) [3, 1, 2] -> (ra)  -> [1, 2, 3]
- * (4) [1, 3, 2] -> (ra)  -> [2, 1, 3] -> (sa)  -> [1, 2, 3]
+ * (4) [1, 3, 2] -> (sa)  -> [3, 1, 2] -> (ra)  -> [1, 2, 3]
  * (5) [2, 3, 1] -> (rra) -> [1, 2, 3]
  */
 static void	sort_3(t_stack *a)
@@ -57,8 +57,8 @@ static void	sort_3(t_stack *a)
 		ra(a);
 	else if (top < mid && mid > bot && top < bot)
 	{
-		ra(a);
 		sa(a);
+		ra(a);
 	}
 	else if (top < mid && mid > bot && top > bot)
 		rra(a);
