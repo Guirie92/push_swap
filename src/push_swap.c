@@ -6,7 +6,7 @@
 /*   By: guillsan <guillsan@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/21 20:52:36 by guillsan          #+#    #+#             */
-/*   Updated: 2025/11/26 20:26:54 by guillsan         ###   ########.fr       */
+/*   Updated: 2025/11/26 20:46:25 by guillsan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,8 +69,8 @@ int	main(int argc, char **argv)
 
 	ft_memset(&a, 0, sizeof (a));
 	ft_memset(&b, 0, sizeof (b));
-	if (argc < 2)
-		return (EXIT_FAILURE);
+	if (argc <= 1)
+		return (EXIT_SUCCESS);
 	data.argc = argc;
 	parse_normalize(&data, &a, &b, argv);
 	sort_handler(&a, &b, data.count);

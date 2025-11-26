@@ -6,12 +6,29 @@
 /*   By: guillsan <guillsan@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 15:08:03 by guillsan          #+#    #+#             */
-/*   Updated: 2025/11/26 02:57:37 by guillsan         ###   ########.fr       */
+/*   Updated: 2025/11/26 21:19:10 by guillsan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "push_swap.h"
+
+static int	check_numeric(char **arg, t_ps_data *data)
+{
+	while (ft_isspace(**arg))
+		(*arg)++;
+	if (**arg == '+' || **arg == '-')
+	{
+		(*arg)++;
+		if (!ft_isdigit(**arg))
+			return (E_ERROR);
+	}
+	if (ft_isdigit(**arg))
+		data->count++;
+	while (ft_isdigit(**arg))
+		(*arg)++;
+	return (E_SUCESS);
+}
 
 /*
  * Accepts single arguments, arguments with quotation marks, multiple numbers
@@ -21,28 +38,22 @@
 long	parse_count_arr(t_ps_data *data, int argc, char **args, int i)
 {
 	char	*arg;
+	int		count;
 
 	i = 0;
 	while (++i < argc)
 	{
 		arg = args[i];
+		count = data->count;
 		while (*arg)
 		{
-			while (ft_isspace(*arg))
-				arg++;
-			if (*arg == '+' || *arg == '-')
-			{
-				arg++;
-				if (!ft_isdigit(*arg))
-					return (-1);
-			}
-			if (ft_isdigit(*arg))
-				data->count++;
-			while (ft_isdigit(*arg))
-				arg++;
+			if (check_numeric(&arg, data) == E_ERROR)
+				return (-1);
 			if (!ft_isspace(*arg) && *arg)
 				return (-1);
 		}
+		if (count == data->count)
+			return (-1);
 	}
 	return (data->count);
 }
