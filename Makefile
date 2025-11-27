@@ -6,14 +6,14 @@
 #    By: guillsan <guillsan@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/20 21:58:38 by guillsan          #+#    #+#              #
-#    Updated: 2025/11/26 02:06:16 by guillsan         ###   ########.fr        #
+#    Updated: 2025/11/27 21:46:26 by guillsan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -g3
+CFLAGS = -Wall -Wextra -Werror
 
 SRCS_DIR = src
 SRCS_ALGORITHMS = $(SRCS_DIR)/algorithms
@@ -49,29 +49,15 @@ LIB_FILE = $(LIB_DIR)/libft.a
 INC = -I inc
 INC_LIB = -I $(LIB_DIR)/inc
 
-# --- Compilation and Linking Flags ---
+# Compilation and Linking Flags
 C_INCLUDES = $(INC) $(INC_LIB) 
 # Links the Libft lib and its path
 LDFLAGS = -L $(LIB_DIR) -lft
-
 
 all: $(NAME)
 
 $(NAME): $(OBJS) $(LIB_FILE)
 	@$(CC) $(CFLAGS) $(C_INCLUDES) $(OBJS) $(LDFLAGS) -o $(NAME)
-
-
-# -------------------------------- TEST AREA --------------------------------- #
-
-run: $(NAME)
-	./$(NAME) $(ARGS)
-
-rerun:
-	@make -s fclean
-	@make -s all
-	./$(NAME) $(ARGS)
-
-# -------------------------------- TEST AREA --------------------------------- #
 
 # Rule to build the libft lib
 $(LIB_FILE):
@@ -90,6 +76,6 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re $(LIB_FILE)
+.PHONY: all clean fclean re
 
 .DEFAULT_GOAL=all
