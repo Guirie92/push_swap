@@ -41,7 +41,7 @@ Stacks behave as **circular virtual arrays**, meaning:
 | size | current element count |
 | cap  | total allocated capacity |
 
-Because the structure is circular, **push/pop/rotate/reverse-rotate all run in O(1)** — no shifting and no pointer-heavy memory movement.
+Because the structure is circular, **push/pop/rotate/reverse-rotate all run in O(1)**: no shifting and no pointer-heavy memory movement.
 
 ---
 
