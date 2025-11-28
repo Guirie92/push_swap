@@ -51,7 +51,7 @@ Because the structure is circular, **push/pop/rotate/reverse-rotate all run in O
 ✔ Sorting and chunk logic optimized for minimal operations  
 ✔ Ranking uses **quicksort O(n log n)**
 
-Normalizing to ranks lets chunk slicing be math-based, and it helps find the max number in the last phase of the algorithm, where you pass the max from B to A, since we know max is `n - 1` (`n` being the size og the array).
+Normalizing to ranks lets chunk slicing be math-based, and it helps find the max number in the last phase of the algorithm, where you pass the max from B to A, since we know max is `n - 1` (`n` being the size of the array).
 
 ---
 
